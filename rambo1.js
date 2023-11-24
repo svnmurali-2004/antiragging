@@ -1,0 +1,6 @@
+const express=require('express')
+const app=express('express')
+mongoose=require('mongoose')
+mongoose.set('strictQuery',false)
+app.listen(3000,()=>console.log("working fine"))
+mongoose.connect('mongodb+srv://svnmurali1:12345@cluster0.thuw9pg.mongodb.net/testing1?retryWrites=true&w=majority').then(console.log("databaseconnected"))
