@@ -64,10 +64,6 @@ const loginSchema = mongoose.Schema({
     name: {
         type: String,
         required: true
-    },
-    email: {
-        type: String,
-        required: true
     }
 });
 
@@ -93,7 +89,27 @@ app.get("/testlogin",async(req,res)=>{
     }
     //res.send(logindetails)
     //res.send(filtereddata)
-})
+});
+app.post("/signup1",async(req,res)=>{
+    let details=await LoginModel.find({});
+    let match="true"
+    details.map(item=>{
+        
+        if (item.rollnumber==req.body.rollnumber){
+            console.log(item,req.body)
+            match="false"
+            return true
+        }
+    });
+    //res.send(match.length);
+    if (match==="true"){
+        let data=await LoginModel.create(req.body);
+        res.send("true")
+    }else{
+        res.send('false')
+    }
+    
+});
 app.get("/getlogin",async(req,res)=>{
     res.send(logindetails);
 })
