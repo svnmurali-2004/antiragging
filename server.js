@@ -34,22 +34,12 @@ app.get("/fulldata",async(req,res)=>{
         '<h1 class="head">Rollnumber :'+item.rollnumber+'</h1>'+
         '<h1 class="head">Date :'+item.date+'</h1>'+
         '<h1 class="head">Branch :'+item.branch+'</h1>'+
-        '<h1 class="head">Section :'+item.section +'</h1>'+
         '<h1 class="head">Phonenumber :'+item.phonenumber+'</h1>'+
         '<div  class="query" >'+item.query+'</div></div>');
         return html;
     }).join("\n");
     
     res.send('<h1 class="head">Queries Received</h1>'+elements);
-    
-    /*else{
-        let text=(
-        <div className="w-95 h-50 bg-white p-8 rounded shadow-md">
-          <p className="text-green-500 text-lg font-semibold">Please login to proceed</p>
-        </div>
-      );
-        res.send(text);
-    }*/
 });
 const seconddatabase=mongoose.createConnection('mongodb+srv://svnmurali1:12345@cluster0.thuw9pg.mongodb.net/logins?retryWrites=true&w=majority')
 const loginSchema = mongoose.Schema({
